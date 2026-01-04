@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeChat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="chat-style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar - User List -->
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center">
+                    <div class="user-avatar me-3" id="currentUserAvatar">
+                        <span id="currentUserInitials">U</span>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0" id="currentUserName">Loading...</h6>
+                        <small class="text-muted" id="currentUserStatus">Online</small>
+                    </div>
+                    <button class="btn btn-sm btn-light" id="logoutBtn" title="Logout">
+                        logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" class="form-control" id="searchUsers" placeholder="🔍 Search users...">
+            </div>
+
+            <!-- Users List -->
+            <div class="users-list" id="usersList">
+                <div class="text-center text-muted py-5">
+                    <p>Loading users...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <!-- No Chat Selected -->
+            <div class="no-chat-selected" id="noChatSelected">
+                <div class="text-center">
+                    <div class="welcome-icon">💬</div>
+                    <h3>WeChat</h3>
+                </div>
+            </div>
+
+            <!-- Active Chat -->
+            <div class="active-chat d-none" id="activeChat">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link back-btn d-md-none" id="backBtn">←</button>
+                        <div class="user-avatar me-3" id="chatUserAvatar">
+                            <span id="chatUserInitials">U</span>
+                        </div>
+                        <div>
+                            <h6 class="mb-0" id="chatUserName">User Name</h6>
+                            <small class="text-muted" id="chatUserStatus">online</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div class="messages-area" id="messagesArea">
+                    <div class="text-center text-muted py-5">
+                        <p>No messages yet</p>
+                        <p>Say hi to start the conversation!</p>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="message-input-area">
+                    <form id="messageForm" class="d-flex gap-2">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="messageInput" 
+                            placeholder="Type a message..."
+                            autocomplete="off"
+                            required>
+                        <button type="submit" class="btn btn-primary" id="sendBtn">
+                            <span id="sendText">send</span>
+                            <span class="spinner-border spinner-border-sm d-none" id="sendSpinner"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Chat Script -->
+    <script src="chat.js"></script>
+</body>
+</html>
